@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NCP Diaspora Alliance Germany – Membership Form</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <style>
+    :root {
+      --green-deep: #0d3d1f;
+      --green-dark: #1a5c2a;
+      --green-mid: #2e7d32;
+      --green-bright: #388e3c;
+      --green-light: #e8f5e9;
+      --green-pale: #f1f8f2;
+      --red-ncp: #c62828;
+      --red-light: #ffebee;
+      --gold: #8b6914;
+      --gold-light: #fdf8ee;
+      --gold-border: #d4a843;
+      --text-dark: #1a1a1a;
+      --text-mid: #444;
+      --text-light: #777;
+      --border: #d0d7d2;
+      --white: #ffffff;
+      --shadow-sm: 0 2px 8px rgba(13, 61, 31, 0.08);
+      --shadow-md: 0 6px 24px rgba(13, 61, 31, 0.12);
+      --shadow-lg: 0 16px 48px rgba(13, 61, 31, 0.16);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Tiro Bangla", serif;
+      background: #eef3ef;
+      color: var(--text-dark);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(46, 125, 50, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 105, 20, 0.05) 0%, transparent 50%),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 40px,
+          rgba(46, 125, 50, 0.015) 40px,
+          rgba(46, 125, 50, 0.015) 41px
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 16px 80px;
+    }
+
+    .form-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .banner-wrap {
+      position: relative;
+      width: 100%;
+      line-height: 0;
+      background: linear-gradient(135deg, #0d3d1f, #2e7d32);
+      min-height: 120px;
+    }
+
+    .banner-wrap img {
+      width: 100%;
+      display: block;
+      max-height: 170px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(13, 61, 31, 0.25));
+    }
+
+    .form-title-block {
+      background: linear-gradient(135deg, var(--gold-light) 0%, #fff9f0 100%);
+      border-bottom: 2px solid var(--gold-border);
+      padding: 20px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .form-title-block .titles {
+      flex: 1;
+    }
+
+    .form-title-bn {
+      font-family: 'Tiro Bangla', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--green-deep);
+      line-height: 1.25;
+      letter-spacing: 0.2px;
+    }
+
+    .form-title-en {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .form-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 10px 18px;
+      background: var(--green-dark);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(13, 61, 31, 0.2);
+    }
+
+    .form-badge strong {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .form-body {
+      padding: 28px 36px 36px;
+    }
+
+    .gdpr-box {
+      background: var(--gold-light);
+      border: 1.5px solid var(--gold-border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+
+    .gdpr-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .gdpr-text {
+      font-family: "Tiro Bangla", serif;
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    .consent-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 14px;
+      padding: 12px 16px;
+      background: var(--white);
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .consent-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: var(--green-mid);
+      cursor: pointer;
+    }
+
+    .consent-label {
+      font-family: "Tiro Bangla", serif;
+      font-size: 13px;
+      color: var(--text-dark);
+      line-height: 1.75;
+      cursor: pointer;
+    }
+
+    .required-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--red-ncp);
+      background: var(--red-light);
+      padding: 2px 6px;
+      border-radius: 20px;
+      margin-left: 6px;
+      vertical-align: middle;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      background: linear-gradient(90deg, var(--green-dark), var(--green-mid));
+      border-radius: 10px;
+      margin: 24px 0 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1.5px solid rgba(255, 255, 255, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .section-titles {
+      flex: 1;
+    }
+
+    .section-bn {
+      font-family: 'Tiro Bangla', serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: 0.15px;
+    }
+
+    .section-en {
+      font-size: 10.5px;
+      color: rgba(255, 255, 255, 0.78);
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .field-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .field-grid.cols-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .field-grid.cols-3 {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .field-label {
+      font-family: "Tiro Bangla", serif;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--green-deep);
+      line-height: 1.45;
+    }
+
+    .field-label-en {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10.5px;
+      color: var(--text-light);
+      font-weight: 500;
+      display: block;
+      margin-top: 2px;
+      letter-spacing: 0.1px;
+    }
+
+    .field-input,
+    .field-textarea,
+    .field-select {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 11px 14px;
+      font-family: "Tiro Bangla", serif;
+      font-size: 13.5px;
+      color: var(--text-dark);
+      background: #fafcfa;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      outline: none;
+      appearance: none;
+    }
+
+    .field-input:focus,
+    .field-textarea:focus,
+    .field-select:focus {
+      border-color: var(--green-mid);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+    }
+
+    .field-input.required-field,
+    .field-textarea.required-field {
+      border-left: 3px solid var(--red-ncp);
+    }
+
+    .field-textarea {
+      resize: vertical;
+      min-height: 84px;
+      line-height: 1.7;
+    }
+
+    .field-input::placeholder,
+    .field-textarea::placeholder {
+      color: #8a8a8a;
+      opacity: 1;
+      font-family: "Tiro Bangla", serif;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+      transition: outline 0.2s;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, transform 0.15s;
+      background: #fafcfa;
+      user-select: none;
+    }
+
+    .checkbox-item:hover {
+      transform: translateY(-1px);
+    }
+
+    .checkbox-item:has(input:checked) {
+      border-color: var(--green-mid);
+      background: var(--green-light);
+    }
+
+    .checkbox-item input[type="radio"] {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--green-mid);
+      cursor: pointer;
+    }
+
+    .checkbox-item span {
+      font-family: "Tiro Bangla", serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-dark);
+      white-space: nowrap;
+    }
+
+    .declaration-box {
+      background: var(--green-pale);
+      border: 1.5px solid var(--green-mid);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      font-family: "Tiro Bangla", serif;
+      font-size: 13px;
+      color: var(--green-deep);
+      line-height: 1.9;
+    }
+
+    .sig-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 16px;
+    }
+
+    .submit-row {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn-reset {
+      padding: 11px 24px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      background: transparent;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-mid);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+
+    .btn-reset:hover {
+      border-color: var(--green-mid);
+      color: var(--green-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-submit {
+      padding: 11px 32px;
+      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+      border: none;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(26, 92, 42, 0.3);
+      transition: opacity 0.2s, transform 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-submit:hover {
+      opacity: 0.94;
+      transform: translateY(-1px);
+    }
+
+    .download-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 8px 28px rgba(26, 92, 42, 0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(26, 92, 42, 0.55);
+    }
+
+    .download-btn:active {
+      transform: translateY(0);
+    }
+
+    .download-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .download-btn .btn-sub {
+      font-size: 10px;
+      font-weight: 400;
+      opacity: 0.8;
+      display: block;
+      margin-top: 1px;
+    }
+
+    .form-footer {
+      border-top: 1.5px solid var(--border);
+      padding: 16px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--green-pale);
+      gap: 18px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11.5px;
+      color: var(--green-dark);
+      font-weight: 500;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .footer-link:hover {
+      text-decoration: underline;
+    }
+
+    .footer-credit {
+      font-size: 10.5px;
+      color: var(--text-light);
+      font-family: 'DM Sans', sans-serif;
+      text-align: right;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 90px;
+      right: 28px;
+      background: var(--green-deep);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: var(--shadow-md);
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.3s;
+      z-index: 2000;
+      pointer-events: none;
+      max-width: 300px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+
+      body::before {
+        display: none;
+      }
+
+      .download-btn,
+      .toast,
+      .submit-row {
+        display: none !important;
+      }
+
+      .page-wrap {
+        padding: 0;
+        max-width: 100%;
+      }
+
+      .form-card {
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .form-body {
+        padding: 20px 18px 28px;
+      }
+
+      .form-title-block {
+        padding: 16px 18px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .form-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 14px 18px;
+      }
+
+      .field-grid.cols-2,
+      .field-grid.cols-3,
+      .sig-row {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .download-btn {
+        bottom: 16px;
+        right: 16px;
+        padding: 12px 18px;
+        font-size: 13px;
+      }
+
+      .toast {
+        right: 16px;
+        bottom: 80px;
+      }
+
+      .form-title-bn {
+        font-size: 23px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="download-btn" type="button" onclick="downloadPDF()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+    <span>
+      Download PDF
+      <span class="btn-sub">Print-ready A4</span>
+    </span>
+  </button>
+
+  <div class="toast" id="toast">✓ Generating PDF…</div>
+
+  <div class="page-wrap">
+    <div class="form-card" id="form-card">
+
+      <div class="banner-wrap">
+        <img
+          src="images/cover.png"
+          alt="NCP Diaspora Alliance Germany"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.parentElement.style.minHeight='120px';"
+        />
+        <div class="banner-overlay"></div>
+      </div>
+
+      <div class="form-title-block">
+        <div class="titles">
+          <div class="form-title-bn">সদস্যপদ নিবন্ধন ফর্ম</div>
+          <div class="form-title-en">Membership Registration Form</div>
+        </div>
+        <div class="form-badge">
+          <span>NCP Diaspora Alliance</span>
+          <strong>Germany</strong>
+          <span>জার্মানি</span>
+        </div>
+      </div>
+
+      <div class="form-body">
+        <form
+          id="membership-form"
+          action="https://formsubmit.co/ncpdiasporade@gmail.com"
+          method="POST"
+          novalidate
+        >
+          <input type="hidden" name="_subject" value="New NCP Diaspora Alliance Germany Membership Registration" />
+          <input type="hidden" name="_captcha" value="true" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_next" value="https://YOUR_GITHUB_PAGES_URL/thanks.html" />
+          <input type="hidden" name="_replyto" value="" />
+
+          <div class="gdpr-box">
+            <div class="gdpr-title">
+              <span>🔒</span> ডেটা সুরক্ষা নীতি &nbsp;|&nbsp; Data Privacy Notice (GDPR)
+            </div>
+            <div class="gdpr-text">
+              আপনার তথ্য জার্মানির প্রযোজ্য ডেটা সুরক্ষা আইন (GDPR) অনুযায়ী গোপনীয়ভাবে সংরক্ষণ ও প্রক্রিয়াজাত করা হবে।
+              আইনগত বাধ্যবাধকতা ব্যতীত বা আপনার পূর্বানুমতি ছাড়া কোনো তৃতীয় পক্ষের সঙ্গে এই তথ্য শেয়ার করা হবে না।
+              <br>
+              <em style="font-size:11.5px;color:#777;">
+                Your data will be stored and processed confidentially in accordance with Germany's applicable data protection law (GDPR).
+                No data will be shared with third parties without legal obligation or your prior consent.
+              </em>
+            </div>
+
+            <div class="consent-row" id="consent-row">
+              <input type="checkbox" id="gdpr-consent" required />
+              <label class="consent-label" for="gdpr-consent">
+                আমি উপরের শর্তাবলি পড়ে বুঝেছি এবং এতে সম্মতি প্রদান করছি।
+                <em style="color:var(--text-light);"> I have read and agree to the above terms.</em>
+                <span class="required-tag">★ Required</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="section-header">
+            <div class="section-num">১</div>
+            <div class="section-titles">
+              <div class="section-bn">ব্যক্তিগত তথ্য</div>
+              <div class="section-en">Personal Information</div>
+            </div>
+          </div>
+
+          <div class="field-grid" style="gap:16px">
+            <div class="field-group">
+              <label class="field-label" for="full-name">
+                ইংরেজিতে আপনার পুরো নাম <span class="required-tag">★ Required</span>
+                <span class="field-label-en">Your Full Name in English</span>
+              </label>
+              <input
+                class="field-input required-field"
+                type="text"
+                id="full-name"
+                name="Full Name (English)"
+                placeholder="e.g. Mohammad Rahman"
+                required
+              />
+            </div>
+
+            <div class="field-grid cols-2">
+              <div class="field-group">
+                <label class="field-label" for="city">
+                  বর্তমান ঠিকানা (শহর) <span class="required-tag">★ Required</span>
+                  <span class="field-label-en">City of Current Residence</span>
+                </label>
+                <input
+                  class="field-input required-field"
+                  type="text"
+                  id="city"
+                  name="City of Current Residence"
+                  placeholder="e.g. Berlin"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label class="field-label" for="profession">
+                  পেশা
+                  <span class="field-label-en">Profession</span>
+                </label>
+                <input
+                  class="field-input"
+                  type="text"
+                  id="profession"
+                  name="Profession"
+                  placeholder="e.g. Software Engineer"
+                />
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="bd-address">
+                বাংলাদেশে আপনার এলাকা <span class="required-tag">★ Required</span>
+                <span class="field-label-en">Address in Bangladesh: Union, Sub-District, District</span>
+              </label>
+              <input
+                class="field-input required-field"
+                type="text"
+                id="bd-address"
+                name="Address in Bangladesh"
+                placeholder="e.g. Mirpur, Dhaka"
+                required
+              />
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">
+                বয়সের গ্রুপ <span class="required-tag">★ Required</span>
+                <span class="field-label-en">Age Group</span>
+              </label>
+              <div class="checkbox-group" id="age-group-box">
+                <label class="checkbox-item">
+                  <input type="radio" name="Age Group" value="18-25" required />
+                  <span>১৮–২৫</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="radio" name="Age Group" value="26-35" />
+                  <span>২৬–৩৫</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="radio" name="Age Group" value="36-45" />
+                  <span>৩৬–৪৫</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="radio" name="Age Group" value="46-55" />
+                  <span>৪৬–৫৫</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="radio" name="Age Group" value="56+" />
+                  <span>৫৬+</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="education">
+                শিক্ষাগত যোগ্যতা <span class="required-tag">★ Required</span>
+                <span class="field-label-en">Educational Qualification</span>
+              </label>
+              <input
+                class="field-input required-field"
+                type="text"
+                id="education"
+                name="Educational Qualification"
+                placeholder="e.g. Masters in Computer Science"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="section-header">
+            <div class="section-num">২</div>
+            <div class="section-titles">
+              <div class="section-bn">যোগাযোগের তথ্য</div>
+              <div class="section-en">Contact Information</div>
+            </div>
+          </div>
+
+          <div class="field-grid" style="gap:16px">
+            <div class="field-grid cols-2">
+              <div class="field-group">
+                <label class="field-label" for="email">
+                  ইমেইল <span class="required-tag">★ Required</span>
+                  <span class="field-label-en">Email Address</span>
+                </label>
+                <input
+                  class="field-input required-field"
+                  type="email"
+                  id="email"
+                  name="Email Address"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label class="field-label" for="whatsapp">
+                  হোয়াটসঅ্যাপ নম্বর <span class="required-tag">★ Required</span>
+                  <span class="field-label-en">WhatsApp Number with Country Code</span>
+                </label>
+                <input
+                  class="field-input required-field"
+                  type="tel"
+                  id="whatsapp"
+                  name="WhatsApp Number"
+                  placeholder="+49 123 456 7890"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="field-grid cols-2">
+              <div class="field-group">
+                <label class="field-label" for="facebook">
+                  ফেসবুক প্রোফাইল লিংক
+                  <span class="field-label-en">Facebook Profile URL</span>
+                </label>
+                <input
+                  class="field-input"
+                  type="url"
+                  id="facebook"
+                  name="Facebook Profile URL"
+                  placeholder="https://facebook.com/yourname"
+                />
+              </div>
+
+              <div class="field-group">
+                <label class="field-label" for="linkedin">
+                  লিঙ্কডইন প্রোফাইল লিংক
+                  <span class="field-label-en">LinkedIn Profile URL</span>
+                </label>
+                <input
+                  class="field-input"
+                  type="url"
+                  id="linkedin"
+                  name="LinkedIn Profile URL"
+                  placeholder="https://linkedin.com/in/yourname"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="section-header">
+            <div class="section-num">৩</div>
+            <div class="section-titles">
+              <div class="section-bn">পটভূমি ও রাজনৈতিক সংশ্লিষ্টতা</div>
+              <div class="section-en">Background &amp; Affiliation</div>
+            </div>
+          </div>
+
+          <div class="field-grid" style="gap:16px">
+            <div class="field-group">
+              <label class="field-label" for="intro">
+                আপনার ছোট পরিচয় বা অন্যান্য প্রাসঙ্গিক লিংক
+                <span class="field-label-en">Introduce Yourself / Website / Media Appearances / Other Links</span>
+              </label>
+              <textarea
+                class="field-textarea"
+                id="intro"
+                name="Short Introduction / Relevant Links"
+                rows="4"
+                placeholder="আপনার সম্পর্কে সংক্ষেপে লিখুন। Write a brief introduction about yourself…"
+              ></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="affiliation">
+                পূর্বে বা বর্তমানে রাজনৈতিক সংগঠনের সাথে যুক্ততা
+                <span class="field-label-en">Previous or Current Political Affiliation (if any)</span>
+              </label>
+              <textarea
+                class="field-textarea"
+                id="affiliation"
+                name="Previous or Current Political Affiliation"
+                rows="3"
+                placeholder="যদি থাকে, বর্ণনা করুন। Describe if applicable…"
+              ></textarea>
+            </div>
+
+            <div class="field-group" style="max-width:50%;">
+              <label class="field-label" for="recommender">
+                রেকমেন্ডারের নাম
+                <span class="field-label-en">Recommender's Name (if applicable)</span>
+              </label>
+              <input
+                class="field-input"
+                type="text"
+                id="recommender"
+                name="Recommender Name"
+                placeholder="রেকমেন্ডারের নাম"
+              />
+            </div>
+          </div>
+
+          <div class="section-header">
+            <div class="section-num">৪</div>
+            <div class="section-titles">
+              <div class="section-bn">ঘোষণা ও স্বাক্ষর</div>
+              <div class="section-en">Declaration &amp; Signature</div>
+            </div>
+          </div>
+
+          <div class="declaration-box">
+            আমি ঘোষণা করছি যে, উপরে প্রদত্ত সকল তথ্য আমার জ্ঞাতসারে সত্য ও সঠিক। আমি এনসিপি ডায়াস্পোরা অ্যালায়েন্স জার্মানির নিয়মাবলি মেনে চলতে সম্মত এবং সংগঠনের লক্ষ্য ও উদ্দেশ্যের প্রতি সমর্থন জানাই।
+            <br>
+            <em style="font-size:11.5px;color:var(--green-mid);">
+              I declare that all information provided above is true and accurate to the best of my knowledge.
+              I agree to abide by the rules of NCP Diaspora Alliance Germany and support the goals and objectives of the organization.
+            </em>
+          </div>
+
+          <div class="sig-row">
+            <div class="field-group">
+              <label class="field-label" for="signature">
+                স্বাক্ষর
+                <span class="field-label-en">Signature</span>
+              </label>
+              <input
+                class="field-input"
+                type="text"
+                id="signature"
+                name="Signature"
+                placeholder="আপনার নাম স্বাক্ষর হিসেবে লিখুন"
+                style="font-style:italic;"
+              />
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="date">
+                তারিখ
+                <span class="field-label-en">Date</span>
+              </label>
+              <input
+                class="field-input"
+                type="date"
+                id="date"
+                name="Submission Date"
+              />
+            </div>
+          </div>
+
+          <div class="submit-row">
+            <button type="reset" class="btn-reset">ফর্ম রিসেট করুন</button>
+            <button type="submit" class="btn-submit">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              ফর্ম জমা দিন / Submit
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-footer">
+        <div class="footer-links">
+          <a href="https://fb.com/ncpdagermany" class="footer-link" target="_blank" rel="noopener noreferrer">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--green-dark)">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+            fb.com/ncpdagermany
+          </a>
+
+          <a href="https://instagram.com/ncpda_germany" class="footer-link" target="_blank" rel="noopener noreferrer">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--green-dark)" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+            instagram.com/ncpda_germany
+          </a>
+        </div>
+
+        <div class="footer-credit">
+          NCP Diaspora Alliance Germany · v1.0 · 2026
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showToast(message, duration = 3000) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+
+      clearTimeout(showToast._timer);
+      showToast._timer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, duration);
+    }
+
+    function initDateField() {
+      const dateInput = document.getElementById('date');
+      if (!dateInput) return;
+
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, '0');
+      const dd = String(now.getDate()).padStart(2, '0');
+      dateInput.value = `${yyyy}-${mm}-${dd}`;
+    }
+
+    async function downloadPDF() {
+      showToast('✓ Generating PDF…', 4000);
+
+      const element = document.getElementById('form-card');
+
+      const options = {
+        margin: [8, 8, 8, 8],
+        filename: 'NCP_Diaspora_Germany_Membership_Form.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          logging: false,
+          backgroundColor: '#ffffff',
+          scrollY: 0
+        },
+        jsPDF: {
+          unit: 'mm',
+          format: 'a4',
+          orientation: 'portrait'
+        },
+        pagebreak: {
+          mode: ['css', 'legacy']
+        }
+      };
+
+      try {
+        if (document.fonts && document.fonts.ready) {
+          await document.fonts.ready;
+        }
+
+        await html2pdf().set(options).from(element).save();
+        showToast('✅ PDF downloaded!', 2500);
+      } catch (error) {
+        console.error(error);
+        showToast('⚠ Error generating PDF', 3000);
+      }
+    }
+
+    function setFieldError(field, hasError) {
+      if (!field) return;
+      field.style.borderColor = hasError ? 'var(--red-ncp)' : '';
+      field.style.boxShadow = hasError ? '0 0 0 3px rgba(198,40,40,.12)' : '';
+    }
+
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function isValidPhone(phone) {
+      return /^[+]?[0-9\s\-()]{7,20}$/.test(phone.trim());
+    }
+
+    function isValidUrl(url) {
+      try {
+        new URL(url);
+        return true;
+      } catch (error) {
+        return false;
+      }
+    }
+
+    function validateForm(form) {
+      let valid = true;
+
+      const fullName = document.getElementById('full-name');
+      const city = document.getElementById('city');
+      const bdAddress = document.getElementById('bd-address');
+      const education = document.getElementById('education');
+      const email = document.getElementById('email');
+      const whatsapp = document.getElementById('whatsapp');
+      const facebook = document.getElementById('facebook');
+      const linkedin = document.getElementById('linkedin');
+      const consent = document.getElementById('gdpr-consent');
+      const consentRow = document.getElementById('consent-row');
+      const ageSelected = form.querySelector('input[name="Age Group"]:checked');
+      const ageGroupBox = document.getElementById('age-group-box');
+
+      [
+        fullName,
+        city,
+        bdAddress,
+        education,
+        email,
+        whatsapp,
+        facebook,
+        linkedin
+      ].forEach(field => setFieldError(field, false));
+
+      ageGroupBox.style.outline = '';
+      consentRow.style.borderColor = '';
+
+      if (!fullName.value.trim()) {
+        setFieldError(fullName, true);
+        if (valid) fullName.focus();
+        valid = false;
+      }
+
+      if (!city.value.trim()) {
+        setFieldError(city, true);
+        if (valid) city.focus();
+        valid = false;
+      }
+
+      if (!bdAddress.value.trim()) {
+        setFieldError(bdAddress, true);
+        if (valid) bdAddress.focus();
+        valid = false;
+      }
+
+      if (!education.value.trim()) {
+        setFieldError(education, true);
+        if (valid) education.focus();
+        valid = false;
+      }
+
+      if (!email.value.trim() || !isValidEmail(email.value.trim())) {
+        setFieldError(email, true);
+        if (valid) email.focus();
+        valid = false;
+      }
+
+      if (!whatsapp.value.trim() || !isValidPhone(whatsapp.value.trim())) {
+        setFieldError(whatsapp, true);
+        if (valid) whatsapp.focus();
+        valid = false;
+      }
+
+      if (facebook.value.trim() && !isValidUrl(facebook.value.trim())) {
+        setFieldError(facebook, true);
+        if (valid) facebook.focus();
+        valid = false;
+      }
+
+      if (linkedin.value.trim() && !isValidUrl(linkedin.value.trim())) {
+        setFieldError(linkedin, true);
+        if (valid) linkedin.focus();
+        valid = false;
+      }
+
+      if (!ageSelected) {
+        ageGroupBox.style.outline = '2px solid var(--red-ncp)';
+        ageGroupBox.style.borderRadius = '8px';
+        valid = false;
+      }
+
+      if (!consent.checked) {
+        consentRow.style.borderColor = 'var(--red-ncp)';
+        consentRow.style.boxShadow = '0 0 0 3px rgba(198,40,40,.08)';
+        valid = false;
+      } else {
+        consentRow.style.boxShadow = '';
+      }
+
+      return valid;
+    }
+
+    function attachLiveValidation() {
+      const requiredFields = ['full-name', 'city', 'bd-address', 'education', 'email', 'whatsapp'];
+
+      requiredFields.forEach(id => {
+        const field = document.getElementById(id);
+        if (!field) return;
+
+        field.addEventListener('blur', () => {
+          const value = field.value.trim();
+
+          if (!value) {
+            setFieldError(field, true);
+            return;
+          }
+
+          if (id === 'email') {
+            setFieldError(field, !isValidEmail(value));
+            return;
+          }
+
+          if (id === 'whatsapp') {
+            setFieldError(field, !isValidPhone(value));
+            return;
+          }
+
+          setFieldError(field, false);
+        });
+
+        field.addEventListener('input', () => {
+          setFieldError(field, false);
+        });
+      });
+
+      ['facebook', 'linkedin'].forEach(id => {
+        const field = document.getElementById(id);
+        if (!field) return;
+
+        field.addEventListener('blur', () => {
+          const value = field.value.trim();
+          if (!value) {
+            setFieldError(field, false);
+            return;
+          }
+          setFieldError(field, !isValidUrl(value));
+        });
+
+        field.addEventListener('input', () => {
+          setFieldError(field, false);
+        });
+      });
+
+      const consent = document.getElementById('gdpr-consent');
+      const consentRow = document.getElementById('consent-row');
+      consent.addEventListener('change', function () {
+        consentRow.style.borderColor = this.checked ? '' : 'var(--red-ncp)';
+        consentRow.style.boxShadow = this.checked ? '' : '0 0 0 3px rgba(198,40,40,.08)';
+      });
+
+      const ageInputs = document.querySelectorAll('input[name="Age Group"]');
+      const ageGroupBox = document.getElementById('age-group-box');
+      ageInputs.forEach(input => {
+        input.addEventListener('change', () => {
+          ageGroupBox.style.outline = '';
+        });
+      });
+    }
+
+    function initFormSubmit() {
+      const form = document.getElementById('membership-form');
+      const emailInput = document.getElementById('email');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const isValid = validateForm(form);
+        if (!isValid) {
+          showToast('⚠ অনুগ্রহ করে সকল প্রয়োজনীয় তথ্য সঠিকভাবে পূরণ করুন।', 3500);
+          return;
+        }
+
+        const replyToField = form.querySelector('input[name="_replyto"]');
+        if (replyToField && emailInput) {
+          replyToField.value = emailInput.value.trim();
+        }
+
+        showToast('✅ ফর্ম জমা দেওয়া হচ্ছে...', 2500);
+        form.submit();
+      });
+
+      form.addEventListener('reset', () => {
+        window.setTimeout(() => {
+          document.querySelectorAll('.field-input, .field-textarea').forEach(field => {
+            field.style.borderColor = '';
+            field.style.boxShadow = '';
+          });
+          document.getElementById('age-group-box').style.outline = '';
+          document.getElementById('consent-row').style.borderColor = '';
+          document.getElementById('consent-row').style.boxShadow = '';
+          initDateField();
+        }, 0);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initDateField();
+      attachLiveValidation();
+      initFormSubmit();
+    });
+  </script>
+</body>
+</html>
